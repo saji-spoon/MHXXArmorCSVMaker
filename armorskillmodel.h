@@ -7,6 +7,9 @@
 #include<iostream>
 #include<fstream>
 #include"indexutil.h"
+#include<QMessageBox>
+#include"armorinfo.h"
+#include<algorithm>
 
 class ArmorSkillModel : public QAbstractTableModel
 {
@@ -43,25 +46,34 @@ public slots:
 
         void save();
 
+        void clear();
+
+signals:
+        void resultPrepared(std::vector<ArmorInfo>);
+
 private:
         std::vector<QString> m_armorNames;
+        std::vector<int> m_slots;
         std::vector<QString> m_skillNames;
 
         std::vector<int> m_armorSkillTable;
 
         static const int SKILLTABLE_ROW = 5;
         static const int SKILLTABLE_COLUMN = 10;
+        int m_battleType;
         
+
         int storeDataIndex(int row, int column)const
         {
-                return (column - 1) + (row - 1) * SKILLTABLE_COLUMN;
+                return column + row * SKILLTABLE_COLUMN;
         }
 
         int storeDataIndex(const QModelIndex& index)const
         {
-                return storeDataIndex(index.row(), index.column());
+                return storeDataIndex(index.row()-1, index.column()-2);
         }
 
+        ArmorInfo getArmorResult(int armorIdx);
 
 
         

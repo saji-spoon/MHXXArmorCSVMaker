@@ -8,6 +8,15 @@ QWidget* ArmorSkillDelegate::createEditor(QWidget * parent, const QStyleOptionVi
         case CellType::Values:
         {
                 QSpinBox* spinbox = new QSpinBox(parent);
+                spinbox->setMinimum(-10);
+                spinbox->setMaximum(30);
+                return spinbox;
+        }
+        case CellType::Slot:
+        {
+                QSpinBox* spinbox = new QSpinBox(parent);
+                spinbox->setMinimum(0);
+                spinbox->setMaximum(3);
                 return spinbox;
         }
         case CellType::ArmorNames:
@@ -28,12 +37,10 @@ QWidget* ArmorSkillDelegate::createEditor(QWidget * parent, const QStyleOptionVi
 
 void ArmorSkillDelegate::setEditorData(QWidget * editor, const QModelIndex & index) const
 {
-
-
-
         switch (getCellType(index))
         {
         case CellType::Values:
+        case CellType::Slot:
         {
                 QSpinBox* spinbox = static_cast<QSpinBox*>(editor);
                 const int val = index.model()->data(index, Qt::EditRole).toInt();
@@ -59,6 +66,7 @@ void ArmorSkillDelegate::setModelData(QWidget * editor, QAbstractItemModel * mod
         switch (getCellType(index))
         {
         case CellType::Values:
+        case CellType::Slot:
         {
                 QSpinBox* spinbox = static_cast<QSpinBox*>(editor);
                 model->setData(index, spinbox->value(), Qt::EditRole);

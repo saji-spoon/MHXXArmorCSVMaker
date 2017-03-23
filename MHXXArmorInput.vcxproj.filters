@@ -104,5 +104,8 @@
     <ClInclude Include="indexutil.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="armorinfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
