@@ -36,7 +36,7 @@
     <item>
      <widget class="QPushButton" name="registerButton">
       <property name="text">
-       <string>Register</string>
+       <string>OK</string>
       </property>
      </widget>
     </item>
@@ -122,7 +122,7 @@
     <item>
      <widget class="QRadioButton" name="bladeRadio">
       <property name="text">
-       <string>Blade.</string>
+       <string>剣士</string>
       </property>
       <property name="checked">
        <bool>true</bool>
@@ -132,7 +132,7 @@
     <item>
      <widget class="QRadioButton" name="gunnerRadio">
       <property name="text">
-       <string>Gunner</string>
+       <string>ガンナー</string>
       </property>
      </widget>
     </item>

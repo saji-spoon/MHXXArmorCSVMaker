@@ -136,7 +136,7 @@ QVariant ArmorSkillModel::headerData(int section, Qt::Orientation orientation, i
         case Qt::DisplayRole:
                 if(orientation == Qt::Horizontal)
                 {
-                        return (section <= 1) ? "" : "Skill" + QString::number(section-1);
+                        return (section <= 1) ? "" : QString::fromLocal8Bit("ƒXƒLƒ‹") + QString::number(section-1);
 
                 }
                 else if(orientation == Qt::Vertical)
