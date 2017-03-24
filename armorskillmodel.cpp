@@ -1,6 +1,6 @@
 #include"ArmorSkillModel.h"
 
-#define DEBUG_MODEL_ON
+//#define DEBUG_MODEL_ON
 
 ArmorSkillModel::ArmorSkillModel(QObject* parent)
         :QAbstractTableModel(parent),
@@ -124,11 +124,11 @@ QVariant ArmorSkillModel::headerData(int section, Qt::Orientation orientation, i
         QString rowLabel[SKILLTABLE_ROW + 1] =
         {
                 "",
-                "Head",
-                "Body",
-                "Arm",
-                "West",
-                "Leg"
+                QString::fromLocal8Bit("ì™"),
+                QString::fromLocal8Bit("ì∑"),
+                QString::fromLocal8Bit("òr"),
+                QString::fromLocal8Bit("çò"),
+                QString::fromLocal8Bit("ë´")
         };
 
         switch(role)
