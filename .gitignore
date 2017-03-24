@@ -213,4 +213,5 @@ ModelManifest.xml
 
 #Qt
 GeneratedFiles/
-work/
+work/*
+!.gitkeep
