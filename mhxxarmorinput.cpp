@@ -37,7 +37,7 @@ bool MHXXArmorInput::confirm(const std::vector<ArmorInfo>& results)
                 }
 
                 message += result.name + " ";
-                message += ((result.battleType == 0) ? QString::fromLocal8Bit("—¼") : ((result.battleType == 1) ? QString::fromLocal8Bit("Œ•") : "ƒK"));
+                message += ((result.battleType == 0) ? QString::fromLocal8Bit("—¼") : ((result.battleType == 1) ? QString::fromLocal8Bit("Œ•") : QString::fromLocal8Bit("ƒK")));
                 message += "S" + QString::number(result.slot) + " ";
                 for (const auto& skill : result.skills)
                 {
@@ -60,11 +60,11 @@ void MHXXArmorInput::save(std::vector<ArmorInfo> results)
         std::array<std::ofstream, 5> files;
         std::array<std::string, 5> filenames =
         {
-                "work/MHXX_EQUIP_HEAD.csv",
-                "work/MHXX_EQUIP_BODY.csv",
-                "work/MHXX_EQUIP_ARM.csv",
-                "work/MHXX_EQUIP_WST.csv",
-                "work/MHXX_EQUIP_LEG.csv"
+                "work/MHX_EQUIP_HEAD.csv",
+                "work/MHX_EQUIP_BODY.csv",
+                "work/MHX_EQUIP_ARM.csv",
+                "work/MHX_EQUIP_WST.csv",
+                "work/MHX_EQUIP_LEG.csv"
         };
 
         for (int i = 0; i < filenames.size(); ++i)
@@ -73,7 +73,13 @@ void MHXXArmorInput::save(std::vector<ArmorInfo> results)
 
                 if (!files[i])
                 {
-                        std::cout << "Save failed:" << filenames[i] << "\n";
+                        QMessageBox msg;
+                        QString message = "";
+                        message += QString::fromLocal8Bit("Save failed:");
+                        message += QString::fromStdString(filenames[i]);
+                        msg.setText(message);
+                        msg.exec();
+
                         return;
                 }
         }
