@@ -18,6 +18,7 @@ MHXのシミュでMHXX用の防具をシミュしたいけど防具情報がな�
   * MHX_EQUIP_LEG.csv
 * ツールを起動
 * 入力
+![input](https://github.com/saji-spoon/MHXXArmorCSVMaker/blob/media/pic_028.png)
 * [OK]
 * 出力内容を確認して[Yes]
 
